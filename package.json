@@ -1,10 +1,10 @@
 {
-  "name": "SHIP",
-  "description": "Node.js application framework based on actor model and message passing",
+  "name": "ham",
+  "description": "Node.js application framework based on hubs, actors and messages",
   "version": "0.0.1",
   "repository": {
   	"type": "git",
-    "url": "https://github.com/ilya42/SHIP"
+    "url": "https://github.com/ilya42/ham"
   },
   "author": "Ilya Simenko",
   "engines": {
