@@ -6,7 +6,7 @@
   	"type": "git",
     "url": "https://github.com/ilya42/ham"
   },
-  "author": "Ilya Simenko",
+  "author": "Ilya Simenko  <ilya42@gmail.com>",
   "engines": {
     "node": "0.4.7"
   },
