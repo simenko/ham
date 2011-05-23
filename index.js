@@ -1,4 +1,4 @@
 exports.Hub = require('./lib/hub');
 exports.Storage = require('./lib/storage');
-exports.Worker = require('./lib/worker');
+exports.Processor = require('./lib/processor');
 exports.Interface = require('./lib/interface');
