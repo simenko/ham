@@ -1,7 +1,7 @@
 {
   "name": "ham",
   "description": "Node.js application framework based on hubs, actors and messages",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {
   	"type": "git",
     "url": "https://github.com/ilya42/ham"
