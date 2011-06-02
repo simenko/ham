@@ -7,7 +7,7 @@ module.exports = {
  'test _aux channel': function()  {
     var hub = new Hub('hub');
     
-    hub._._aux._openpub.should.be.true;    
+    hub.$._aux[hub.id()].pub.should.be.true;    
  },
  
  'test id getter': function()  {
@@ -22,11 +22,11 @@ module.exports = {
     hub.setupChannel(1).should.not.be.ok;  
     
     hub.setupChannel('test').should.be.ok;
-    hub._.should.have.property('test');
+    hub.$.should.have.property('test');
     
     hub.setupChannel('test',
                      { someActor: {pub: true} }).should.be.ok;
-    hub._.test.someActor.pub.should.be.true;
+    hub.$.test.someActor.pub.should.be.true;
   },
   
  'test allow and deny': function()  {
@@ -34,15 +34,30 @@ module.exports = {
     hub.setupChannel('test');
     
     hub.allow('someActor', 'sub', 'test');
-    hub._.test.someActor.sub.should.be.true;
+    hub.$.test.someActor.sub.should.be.true;
     
     hub.deny('someOtherActor', 'sub', 'test');
-    hub._.test.someOtherActor.sub.should.be.false;
+    hub.$.test.someOtherActor.sub.should.be.false;
     
-    hub.setupChannel('test2', {_openpub: true});
+    hub.setupChannel('test2', {_open_pub: true});
     hub.deny('foo', 'pub', 'test2').should.not.be.ok;
    // console.log(hub.dump());    
   },
+  
+ 'test bulkAllow bulkDeny': function()  {
+    var hub = new Hub('hub');
+    hub.setupChannel('test');
+    hub.setupChannel('test2');
+
+    hub.bulkAllow(['a', 'b', 'c'], 'sub', ['test', 'test2']);
+    hub.$.test.should.have.keys('a', 'b', 'c');
+    hub.$.test2.should.have.keys('a', 'b', 'c');
+    
+    hub.bulkDeny(['a', 'b'], 'sub', ['test2']);
+    hub.$.test2.a.sub.should.be.false;
+    hub.$.test2.b.sub.should.be.false;
+    hub.$.test2.c.sub.should.be.true;
+ },
   
  'test deleteChannel': function()  {
     var hub = new Hub('hub');
