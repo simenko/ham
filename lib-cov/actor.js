@@ -2,129 +2,123 @@
 if (typeof _$jscoverage === 'undefined') _$jscoverage = {};
 if (! _$jscoverage['actor.js']) {
   _$jscoverage['actor.js'] = [];
-  _$jscoverage['actor.js'][5] = 0;
-  _$jscoverage['actor.js'][6] = 0;
+  _$jscoverage['actor.js'][7] = 0;
+  _$jscoverage['actor.js'][8] = 0;
   _$jscoverage['actor.js'][9] = 0;
-  _$jscoverage['actor.js'][17] = 0;
-  _$jscoverage['actor.js'][18] = 0;
-  _$jscoverage['actor.js'][25] = 0;
-  _$jscoverage['actor.js'][26] = 0;
-  _$jscoverage['actor.js'][36] = 0;
-  _$jscoverage['actor.js'][37] = 0;
-  _$jscoverage['actor.js'][38] = 0;
-  _$jscoverage['actor.js'][39] = 0;
-  _$jscoverage['actor.js'][50] = 0;
-  _$jscoverage['actor.js'][51] = 0;
-  _$jscoverage['actor.js'][52] = 0;
+  _$jscoverage['actor.js'][12] = 0;
+  _$jscoverage['actor.js'][20] = 0;
+  _$jscoverage['actor.js'][21] = 0;
+  _$jscoverage['actor.js'][28] = 0;
+  _$jscoverage['actor.js'][29] = 0;
+  _$jscoverage['actor.js'][41] = 0;
+  _$jscoverage['actor.js'][42] = 0;
   _$jscoverage['actor.js'][53] = 0;
+  _$jscoverage['actor.js'][54] = 0;
   _$jscoverage['actor.js'][55] = 0;
-  _$jscoverage['actor.js'][66] = 0;
-  _$jscoverage['actor.js'][67] = 0;
-  _$jscoverage['actor.js'][68] = 0;
+  _$jscoverage['actor.js'][56] = 0;
+  _$jscoverage['actor.js'][58] = 0;
   _$jscoverage['actor.js'][69] = 0;
+  _$jscoverage['actor.js'][70] = 0;
   _$jscoverage['actor.js'][71] = 0;
-  _$jscoverage['actor.js'][81] = 0;
-  _$jscoverage['actor.js'][82] = 0;
-  _$jscoverage['actor.js'][83] = 0;
+  _$jscoverage['actor.js'][72] = 0;
+  _$jscoverage['actor.js'][74] = 0;
   _$jscoverage['actor.js'][84] = 0;
+  _$jscoverage['actor.js'][85] = 0;
   _$jscoverage['actor.js'][86] = 0;
-  _$jscoverage['actor.js'][96] = 0;
-  _$jscoverage['actor.js'][97] = 0;
-  _$jscoverage['actor.js'][98] = 0;
+  _$jscoverage['actor.js'][87] = 0;
+  _$jscoverage['actor.js'][89] = 0;
   _$jscoverage['actor.js'][99] = 0;
+  _$jscoverage['actor.js'][100] = 0;
   _$jscoverage['actor.js'][101] = 0;
-  _$jscoverage['actor.js'][113] = 0;
-  _$jscoverage['actor.js'][114] = 0;
-  _$jscoverage['actor.js'][115] = 0;
+  _$jscoverage['actor.js'][102] = 0;
+  _$jscoverage['actor.js'][104] = 0;
   _$jscoverage['actor.js'][116] = 0;
-  _$jscoverage['actor.js'][120] = 0;
+  _$jscoverage['actor.js'][117] = 0;
+  _$jscoverage['actor.js'][118] = 0;
+  _$jscoverage['actor.js'][119] = 0;
+  _$jscoverage['actor.js'][123] = 0;
 }
-_$jscoverage['actor.js'][5]++;
+_$jscoverage['actor.js'][7]++;
+var Actor = require("./actor");
+_$jscoverage['actor.js'][8]++;
 var _ = require("../underscore")._;
-_$jscoverage['actor.js'][6]++;
-var createMessage = require("./utils").createMessage;
 _$jscoverage['actor.js'][9]++;
+var createMessage = require("./utils").createMessage;
+_$jscoverage['actor.js'][12]++;
 var Actor = (function () {
 });
-_$jscoverage['actor.js'][17]++;
+_$jscoverage['actor.js'][20]++;
 Actor.prototype.id = (function () {
-  _$jscoverage['actor.js'][18]++;
+  _$jscoverage['actor.js'][21]++;
   return this._id;
 });
-_$jscoverage['actor.js'][25]++;
+_$jscoverage['actor.js'][28]++;
 Actor.prototype.defaultListener = (function (msg) {
-  _$jscoverage['actor.js'][26]++;
-  console.log("Ooops! " + msg._id + ", " + msg.channel);
+  _$jscoverage['actor.js'][29]++;
+  console.log(this._id + ": Ooops! " + msg._id + ", " + msg.channel);
 });
-_$jscoverage['actor.js'][36]++;
+_$jscoverage['actor.js'][41]++;
 Actor.prototype.recieve = (function (msg) {
-  _$jscoverage['actor.js'][37]++;
-  if (this._listeners[msg.channel]) {
-    _$jscoverage['actor.js'][38]++;
-    this._listeners[msg.channel].call(this, msg);
-  }
-  else {
-    _$jscoverage['actor.js'][39]++;
-    this.defaultListener(msg);
-  }
+  _$jscoverage['actor.js'][42]++;
+  (this._listeners[msg.channel] || this.defaultListener).call(this, msg);
 });
-_$jscoverage['actor.js'][50]++;
+_$jscoverage['actor.js'][53]++;
 Actor.prototype.sub = (function (channel, listener) {
-  _$jscoverage['actor.js'][51]++;
+  _$jscoverage['actor.js'][54]++;
   this._listeners[channel] = listener;
-  _$jscoverage['actor.js'][52]++;
-  if (this.hub.subscribe(channel, this)) {
-    _$jscoverage['actor.js'][53]++;
+  _$jscoverage['actor.js'][55]++;
+  if (this.hub.subscribe(channel, this._id, this)) {
+    _$jscoverage['actor.js'][56]++;
     return true;
   }
-  _$jscoverage['actor.js'][55]++;
+  _$jscoverage['actor.js'][58]++;
   return false;
 });
-_$jscoverage['actor.js'][66]++;
+_$jscoverage['actor.js'][69]++;
 Actor.prototype.Psub = (function (pattern, listener) {
-  _$jscoverage['actor.js'][67]++;
-  var channels = this.hub.Psubscribe(pattern, this);
-  _$jscoverage['actor.js'][68]++;
+  _$jscoverage['actor.js'][70]++;
+  var channels = this.hub.Psubscribe(pattern, this.id(), this);
+  _$jscoverage['actor.js'][71]++;
   for (var c in channels) {
-    _$jscoverage['actor.js'][69]++;
+    _$jscoverage['actor.js'][72]++;
     this._listeners[channels[c]] = listener;
 }
-  _$jscoverage['actor.js'][71]++;
+  _$jscoverage['actor.js'][74]++;
   return channels;
 });
-_$jscoverage['actor.js'][81]++;
+_$jscoverage['actor.js'][84]++;
 Actor.prototype.unsub = (function (channel) {
-  _$jscoverage['actor.js'][82]++;
+  _$jscoverage['actor.js'][85]++;
   if (this.hub.unsubscribe(channel, this)) {
-    _$jscoverage['actor.js'][83]++;
+    _$jscoverage['actor.js'][86]++;
     this._listeners[channel] = undefined;
-    _$jscoverage['actor.js'][84]++;
+    _$jscoverage['actor.js'][87]++;
     return true;
   }
-  _$jscoverage['actor.js'][86]++;
+  _$jscoverage['actor.js'][89]++;
   return false;
 });
-_$jscoverage['actor.js'][96]++;
+_$jscoverage['actor.js'][99]++;
 Actor.prototype.Punsub = (function (pattern) {
-  _$jscoverage['actor.js'][97]++;
+  _$jscoverage['actor.js'][100]++;
   var channels = this.hub.Punsubscribe(pattern, this);
-  _$jscoverage['actor.js'][98]++;
+  _$jscoverage['actor.js'][101]++;
   for (var c in channels) {
-    _$jscoverage['actor.js'][99]++;
+    _$jscoverage['actor.js'][102]++;
     this._listeners[channels[c]] = undefined;
 }
-  _$jscoverage['actor.js'][101]++;
+  _$jscoverage['actor.js'][104]++;
   return channels;
 });
-_$jscoverage['actor.js'][113]++;
+_$jscoverage['actor.js'][116]++;
 Actor.prototype.pub = (function (channel, body, options) {
-  _$jscoverage['actor.js'][114]++;
+  _$jscoverage['actor.js'][117]++;
   msg = createMessage(channel, body, options);
-  _$jscoverage['actor.js'][115]++;
+  _$jscoverage['actor.js'][118]++;
   msg._id = this._id + "#" + this._msgCount++;
-  _$jscoverage['actor.js'][116]++;
-  return this.hub.publish(msg, this);
+  _$jscoverage['actor.js'][119]++;
+  return this.hub.publish(msg, this._id, this);
 });
-_$jscoverage['actor.js'][120]++;
+_$jscoverage['actor.js'][123]++;
 exports = module.exports = Actor;
-_$jscoverage['actor.js'].source = ["/**"," * Module dependencies."," */","","var _ = require('../underscore')._;","var createMessage = require('./utils').createMessage;","","","var Actor = function ()  {}","","/**"," * Getter for _id"," *"," * @returns {string} _id"," */","","Actor.prototype.id = function ()  {","  return this._id;","}","","/**"," * Default listener. logs unknown message"," */","","Actor.prototype.defaultListener = function (msg)  {","  console.log('Ooops! ' + msg._id + ', ' + msg.channel);","}","","/**"," * Recieves message and dispatches it to corresponding listener."," * _listeners array should be defined in the inherited object"," *"," * @param {object} [msg] the message"," */","","Actor.prototype.recieve = function (msg) {","  if (this._listeners[msg.channel])","    this._listeners[msg.channel].call(this, msg);","  else this.defaultListener(msg);","}","","/**"," * Subscribes to the channel and bind listener to its messages"," *"," * @param {string} [channel] the channel"," * @param {function} [listener] the listener"," * @returns {true|false} success|failure"," */ ","","Actor.prototype.sub = function (channel, listener)  {","  this._listeners[channel] = listener;","  if (this.hub.subscribe (channel, this))  {","    return true;","  }","  return false;","}","","/**"," * Subscribes to all channels matching pattern"," *"," * @param {string} [pattern] contains regular expression"," * @param {function} [listener] the listener"," * @returns {array} matching channels"," */  ","","Actor.prototype.Psub = function (pattern, listener)  {","  var channels = this.hub.Psubscribe (pattern, this)","  for (var c in channels)  {","    this._listeners[channels[c]] = listener;","  }","  return channels;","}","","/**"," * Unsubscribes channel and unbinds listener"," *"," * @param {string} [channel] the channel"," * @returns {true|false} success|failure"," */ ","","Actor.prototype.unsub = function (channel)  {","  if (this.hub.unsubscribe (channel, this))  {","    this._listeners[channel] = undefined;","    return true;","  }","  return false;","}","","/**"," * Unsubscribes matching channels and unbinds listeners"," *"," * @param {string} [pattern] contains regular expression"," * @returns {array} matching channels"," */ ","","Actor.prototype.Punsub = function (pattern)  {","  var channels = this.hub.Punsubscribe (pattern, this)","  for (var c in channels)  {","    this._listeners[channels[c]] = undefined;","  }","  return channels;","}","","/**"," * Creates and publishes message"," *"," * @param {string} [channel] "," * @param {any} [body] message body"," * @param {object} [options] see createMessage"," * @returns {true|false} success|failure"," */ "," ","Actor.prototype.pub = function (channel, body, options) {","  msg = createMessage(channel, body, options);","  msg._id = this._id + '#' + this._msgCount++;","  return this.hub.publish (msg, this);","}","","","exports = module.exports = Actor;"];
+_$jscoverage['actor.js'].source = ["/**"," * Module dependencies."," */","","//var profiler = require('v8-profiler');"," ","var Actor = require('./actor');","var _ = require('../underscore')._;","var createMessage = require('./utils').createMessage;","","","var Actor = function ()  {}","","/**"," * Getter for _id"," *"," * @returns {string} _id"," */","","Actor.prototype.id = function ()  {","  return this._id;","}","","/**"," * Default listener. logs unknown message"," */","","Actor.prototype.defaultListener = function (msg)  {","  console.log(this._id + ': Ooops! ' + msg._id + ', ' + msg.channel);","}","","/**"," * Recieves message, adds it to the queue and dispatches "," * it to corresponding listener."," * _listeners array should be defined in the inherited object"," *"," * @param {object} [msg] the message"," */","","","Actor.prototype.recieve = function (msg) {","  (this._listeners[msg.channel] || this.defaultListener).call(this, msg);","}","","/**"," * Subscribes to the channel and bind listener to its messages"," *"," * @param {string} [channel] the channel"," * @param {function} [listener] the listener"," * @returns {true|false} success|failure"," */ ","","Actor.prototype.sub = function (channel, listener)  {","  this._listeners[channel] = listener;","  if (this.hub.subscribe (channel, this._id, this))  {","    return true;","  }","  return false;","}","","/**"," * Subscribes to all channels matching pattern"," *"," * @param {string} [pattern] contains regular expression"," * @param {function} [listener] the listener"," * @returns {array} matching channels"," */  ","","Actor.prototype.Psub = function (pattern, listener)  {","  var channels = this.hub.Psubscribe (pattern, this.id(), this)","  for (var c in channels)  {","    this._listeners[channels[c]] = listener;","  }","  return channels;","}","","/**"," * Unsubscribes channel and unbinds listener"," *"," * @param {string} [channel] the channel"," * @returns {true|false} success|failure"," */ ","","Actor.prototype.unsub = function (channel)  {","  if (this.hub.unsubscribe (channel, this))  {","    this._listeners[channel] = undefined;","    return true;","  }","  return false;","}","","/**"," * Unsubscribes matching channels and unbinds listeners"," *"," * @param {string} [pattern] contains regular expression"," * @returns {array} matching channels"," */ ","","Actor.prototype.Punsub = function (pattern)  {","  var channels = this.hub.Punsubscribe (pattern, this)","  for (var c in channels)  {","    this._listeners[channels[c]] = undefined;","  }","  return channels;","}","","/**"," * Creates and publishes message"," *"," * @param {string} [channel] "," * @param {any} [body] message body"," * @param {object} [options] see createMessage"," * @returns {true|false} success|failure"," */ "," ","Actor.prototype.pub = function (channel, body, options) {","  msg = createMessage(channel, body, options);","  msg._id = this._id + '#' + this._msgCount++;","  return this.hub.publish (msg, this._id, this);","}","","","exports = module.exports = Actor;"];

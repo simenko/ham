@@ -4,34 +4,40 @@ if (! _$jscoverage['interface.js']) {
   _$jscoverage['interface.js'] = [];
   _$jscoverage['interface.js'][5] = 0;
   _$jscoverage['interface.js'][6] = 0;
-  _$jscoverage['interface.js'][9] = 0;
-  _$jscoverage['interface.js'][10] = 0;
+  _$jscoverage['interface.js'][7] = 0;
+  _$jscoverage['interface.js'][8] = 0;
   _$jscoverage['interface.js'][11] = 0;
   _$jscoverage['interface.js'][12] = 0;
   _$jscoverage['interface.js'][13] = 0;
   _$jscoverage['interface.js'][14] = 0;
-  _$jscoverage['interface.js'][21] = 0;
-  _$jscoverage['interface.js'][23] = 0;
+  _$jscoverage['interface.js'][15] = 0;
+  _$jscoverage['interface.js'][22] = 0;
+  _$jscoverage['interface.js'][24] = 0;
 }
 _$jscoverage['interface.js'][5]++;
 var Actor = require("./actor");
 _$jscoverage['interface.js'][6]++;
-var uuid = require("node-uuid");
-_$jscoverage['interface.js'][9]++;
-var Interface = (function (name) {
-  _$jscoverage['interface.js'][10]++;
-  this.name = name.toString();
-  _$jscoverage['interface.js'][11]++;
-  this._id = this.name + uuid().slice(0, 4);
+if (typeof uuid === "undefined") {
+  _$jscoverage['interface.js'][7]++;
+  var _uuid = require("node-uuid");
+}
+else {
+  _$jscoverage['interface.js'][8]++;
+  _uuid = uuid;
+}
+_$jscoverage['interface.js'][11]++;
+var Interface = (function () {
   _$jscoverage['interface.js'][12]++;
-  this._msgCount = 0;
+  this._id = _uuid();
   _$jscoverage['interface.js'][13]++;
-  this.hub = null;
+  this._msgCount = 0;
   _$jscoverage['interface.js'][14]++;
+  this.hub = null;
+  _$jscoverage['interface.js'][15]++;
   this._listeners = {};
 });
-_$jscoverage['interface.js'][21]++;
+_$jscoverage['interface.js'][22]++;
 Interface.prototype = new Actor();
-_$jscoverage['interface.js'][23]++;
+_$jscoverage['interface.js'][24]++;
 exports = module.exports = Interface;
-_$jscoverage['interface.js'].source = ["/**"," * Module dependencies."," */","","var Actor = require('./actor');","var uuid = require('node-uuid');","","","var Interface = function (name)  {","  this.name = name.toString();","  this._id = this.name + uuid().slice(0,4);","  this._msgCount = 0;","  this.hub = null;","  this._listeners = {};","}","","/**"," * Inherits Actor."," */","","Interface.prototype = new Actor;","","exports = module.exports = Interface;"];
+_$jscoverage['interface.js'].source = ["/**"," * Module dependencies."," */","","var Actor = require('./actor');","if (typeof uuid === 'undefined')","  var _uuid = require('node-uuid');","else _uuid = uuid;","","","var Interface = function ()  {","  this._id = _uuid();","  this._msgCount = 0;","  this.hub = null;","  this._listeners = {};","}","","/**"," * Inherits Actor."," */","","Interface.prototype = new Actor;","","exports = module.exports = Interface;"];
