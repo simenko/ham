@@ -1,7 +1,10 @@
 var assert = require('assert'),
     should = require('should'),
-    Hub = require('hub');
-    _ = require('utils');
+    Hub = require('hub'),
+    Agent = require('agent'),
+    Interface = require('interface'),
+    _ = require('utils'),
+    util = require('util')
 
 module.exports = {
  'service channels': function()  {
@@ -58,13 +61,12 @@ module.exports = {
     hub.rules('allowSub', 'test', 'subscriber');
     hub.rules('allowPub', 'test', hub);
 
-    var subscriber = {
-      id: function(){return this._id},
-      _id: 'subscriber',
-      receive: function(msg){this.gotMessage = true;},
-      gotMessage: false
-    }
-    hub.subscribe('test', subscriber);
+    var subscriber = new Agent();
+    subscriber.onMsg = function(msg){this.gotMessage = true;};
+    subscriber.gotMessage = false;
+    subscriber.hub = hub;
+
+    subscriber.sub('test', subscriber.onMsg);
     hub.pub('test').should.be.ok;
     subscriber.gotMessage.should.be.true;
     subscriber.gotMessage = false;
@@ -76,41 +78,38 @@ module.exports = {
  'multisub': function()  {
     var hub = new Hub();
 
-    hub.rules('allowSub', ['test', 'test2'], ['subscriber1', 'subscriber2']);
+    hub.rules('allowSub', ['test', 'test3'], ['subscriber1', 'subscriber2']);
     hub.rules('allowPub', /.*/, hub);
 
-    var subscriber1 = {
-      _id: 'subscriber1',
-      id: function(){return this._id;},
-      receive: function(msg){this.gotMessage = msg.channel;},
-      gotMessage: false
-    };
-    var subscriber2 = {
-      _id: 'subscriber2',
-      id: function(){return this._id;},
-      receive: function(msg){this.gotMessage = msg.channel;},
-      gotMessage: false
-    };
+    var subscriber1 = new Interface('subscriber1');
+    subscriber1.onMsg = function(msg){this.gotMessage = msg.channel;};
+    subscriber1.gotMessage = false;
+    hub.connect(subscriber1);
+    var subscriber2 = new Interface('subscriber2');
+    subscriber2.onMsg = function(msg){this.gotMessage = msg.channel;};
+    subscriber2.gotMessage = false;
+    hub.connect(subscriber2);
 
-    hub.multiSub (/.*/, [subscriber1]);
+    subscriber1.multiSub (/.*/, subscriber1.onMsg);
     hub.pub('test').should.be.ok;
-    subscriber1.gotMessage.should.equal('test');
-    hub.unsubscribe('test', subscriber1);
-    hub.multiSub (['test', 'test2'], [subscriber1, subscriber2]);
 
+    subscriber1.gotMessage.should.equal('test');
+    subscriber1.unsub('test');
+    subscriber1.multiSub (['test','test3'], subscriber1.onMsg);
+    subscriber2.multiSub (['test', 'test3'], subscriber2.onMsg);
     hub.pub('test').should.be.ok;
     subscriber1.gotMessage.should.equal('test');
     subscriber2.gotMessage.should.equal('test');
-    hub.pub('test2').should.be.ok;
-    subscriber1.gotMessage.should.equal('test2');
-    subscriber2.gotMessage.should.equal('test2');
+    hub.pub('test3').should.be.ok;
+    subscriber1.gotMessage.should.equal('test3');
+    subscriber2.gotMessage.should.equal('test3');
     
     hub.multiUnsub (/.*/, [subscriber2]);
     hub.pub('test');
-    subscriber2.gotMessage.should.equal('test2');
-    hub.multiUnsub (['test1', 'test2'], [subscriber1, subscriber2]);
+    subscriber2.gotMessage.should.equal('test3');
+    hub.multiUnsub (['test', 'test3'], [subscriber1, subscriber2]);
     subscriber1.gotMessage = 0;
-    hub.pub('test2');
+    hub.pub('test3');
     subscriber1.gotMessage.should.equal(0);
  },
  
@@ -137,10 +136,5 @@ module.exports = {
     // reChannel should be deleted in 100 mSec
     setTimeout(function(hub){return hub.$.should.have.property('_re:hub#0')}, 50, hub);
     setTimeout(function(hub){hub.$.should.not.have.property('_re:hub#0')}, 150, hub);    
- },
- 
- 'publish': function()  {
-   var hub = new Hub();
-   hub.pub('sefdse').should.not.be.ok;
  }
 }    

@@ -75,58 +75,61 @@ if (! _$jscoverage['hub.js']) {
   _$jscoverage['hub.js'][152] = 0;
   _$jscoverage['hub.js'][153] = 0;
   _$jscoverage['hub.js'][165] = 0;
-  _$jscoverage['hub.js'][166] = 0;
   _$jscoverage['hub.js'][167] = 0;
   _$jscoverage['hub.js'][168] = 0;
   _$jscoverage['hub.js'][169] = 0;
   _$jscoverage['hub.js'][170] = 0;
-  _$jscoverage['hub.js'][171] = 0;
-  _$jscoverage['hub.js'][182] = 0;
-  _$jscoverage['hub.js'][183] = 0;
-  _$jscoverage['hub.js'][186] = 0;
-  _$jscoverage['hub.js'][187] = 0;
+  _$jscoverage['hub.js'][172] = 0;
+  _$jscoverage['hub.js'][173] = 0;
+  _$jscoverage['hub.js'][184] = 0;
+  _$jscoverage['hub.js'][185] = 0;
   _$jscoverage['hub.js'][188] = 0;
-  _$jscoverage['hub.js'][198] = 0;
-  _$jscoverage['hub.js'][199] = 0;
-  _$jscoverage['hub.js'][203] = 0;
-  _$jscoverage['hub.js'][205] = 0;
+  _$jscoverage['hub.js'][189] = 0;
+  _$jscoverage['hub.js'][190] = 0;
+  _$jscoverage['hub.js'][200] = 0;
+  _$jscoverage['hub.js'][201] = 0;
   _$jscoverage['hub.js'][206] = 0;
-  _$jscoverage['hub.js'][207] = 0;
   _$jscoverage['hub.js'][208] = 0;
   _$jscoverage['hub.js'][209] = 0;
+  _$jscoverage['hub.js'][210] = 0;
+  _$jscoverage['hub.js'][211] = 0;
+  _$jscoverage['hub.js'][212] = 0;
   _$jscoverage['hub.js'][213] = 0;
-  _$jscoverage['hub.js'][214] = 0;
-  _$jscoverage['hub.js'][215] = 0;
-  _$jscoverage['hub.js'][216] = 0;
-  _$jscoverage['hub.js'][229] = 0;
-  _$jscoverage['hub.js'][230] = 0;
-  _$jscoverage['hub.js'][242] = 0;
-  _$jscoverage['hub.js'][243] = 0;
-  _$jscoverage['hub.js'][244] = 0;
-  _$jscoverage['hub.js'][245] = 0;
-  _$jscoverage['hub.js'][257] = 0;
-  _$jscoverage['hub.js'][258] = 0;
-  _$jscoverage['hub.js'][262] = 0;
-  _$jscoverage['hub.js'][263] = 0;
+  _$jscoverage['hub.js'][217] = 0;
+  _$jscoverage['hub.js'][218] = 0;
+  _$jscoverage['hub.js'][219] = 0;
+  _$jscoverage['hub.js'][220] = 0;
+  _$jscoverage['hub.js'][221] = 0;
+  _$jscoverage['hub.js'][226] = 0;
+  _$jscoverage['hub.js'][236] = 0;
+  _$jscoverage['hub.js'][237] = 0;
+  _$jscoverage['hub.js'][249] = 0;
+  _$jscoverage['hub.js'][250] = 0;
+  _$jscoverage['hub.js'][251] = 0;
+  _$jscoverage['hub.js'][252] = 0;
+  _$jscoverage['hub.js'][264] = 0;
   _$jscoverage['hub.js'][265] = 0;
-  _$jscoverage['hub.js'][267] = 0;
-  _$jscoverage['hub.js'][269] = 0;
   _$jscoverage['hub.js'][270] = 0;
-  _$jscoverage['hub.js'][272] = 0;
+  _$jscoverage['hub.js'][271] = 0;
   _$jscoverage['hub.js'][273] = 0;
-  _$jscoverage['hub.js'][274] = 0;
   _$jscoverage['hub.js'][275] = 0;
+  _$jscoverage['hub.js'][277] = 0;
   _$jscoverage['hub.js'][278] = 0;
   _$jscoverage['hub.js'][280] = 0;
   _$jscoverage['hub.js'][281] = 0;
-  _$jscoverage['hub.js'][284] = 0;
-  _$jscoverage['hub.js'][285] = 0;
+  _$jscoverage['hub.js'][282] = 0;
+  _$jscoverage['hub.js'][283] = 0;
   _$jscoverage['hub.js'][286] = 0;
+  _$jscoverage['hub.js'][288] = 0;
   _$jscoverage['hub.js'][289] = 0;
+  _$jscoverage['hub.js'][292] = 0;
   _$jscoverage['hub.js'][293] = 0;
+  _$jscoverage['hub.js'][294] = 0;
   _$jscoverage['hub.js'][297] = 0;
-  _$jscoverage['hub.js'][298] = 0;
   _$jscoverage['hub.js'][301] = 0;
+  _$jscoverage['hub.js'][305] = 0;
+  _$jscoverage['hub.js'][306] = 0;
+  _$jscoverage['hub.js'][309] = 0;
 }
 _$jscoverage['hub.js'][1]++;
 "use strict";
@@ -140,9 +143,9 @@ var _ = require("./utils");
 _$jscoverage['hub.js'][9]++;
 var Actor = require("./actor");
 _$jscoverage['hub.js'][12]++;
-var Hub = (function () {
+var Hub = (function (id) {
   _$jscoverage['hub.js'][13]++;
-  this._id = "hub";
+  this._id = id || "hub";
   _$jscoverage['hub.js'][14]++;
   this._msgCount = 0;
   _$jscoverage['hub.js'][15]++;
@@ -291,7 +294,7 @@ Hub.prototype.rules = (function (action, channels, actors) {
     }
 }
   _$jscoverage['hub.js'][132]++;
-  _.deepExtend(this.$, changes);
+  _.deepExtend(this.$, changes, 4);
 });
 _$jscoverage['hub.js'][145]++;
 Hub.prototype.authorize = (function (actorId, action, channel) {
@@ -307,144 +310,150 @@ Hub.prototype.authorize = (function (actorId, action, channel) {
 });
 _$jscoverage['hub.js'][165]++;
 Hub.prototype.subscribe = (function (channel, subscriber) {
-  _$jscoverage['hub.js'][166]++;
-  var changes = {};
   _$jscoverage['hub.js'][167]++;
-  changes[channel] = {};
+  var changes = {};
   _$jscoverage['hub.js'][168]++;
-  changes[channel][subscriber.id()] = {_handle: subscriber};
+  changes[channel] = {};
   _$jscoverage['hub.js'][169]++;
-  _.deepExtend(this.$, changes);
+  changes[channel][subscriber.id()] = {_handle: subscriber};
   _$jscoverage['hub.js'][170]++;
+  _.deepExtend(this.$, changes, 2);
+  _$jscoverage['hub.js'][172]++;
   if (this.authorize(subscriber.id(), "sub", channel)) {
-    _$jscoverage['hub.js'][170]++;
+    _$jscoverage['hub.js'][172]++;
     return true;
   }
   else {
-    _$jscoverage['hub.js'][171]++;
+    _$jscoverage['hub.js'][173]++;
     return false;
   }
 });
-_$jscoverage['hub.js'][182]++;
+_$jscoverage['hub.js'][184]++;
 Hub.prototype.unsubscribe = (function (channel, subscriber) {
-  _$jscoverage['hub.js'][183]++;
+  _$jscoverage['hub.js'][185]++;
   if (this.$[channel] && this.$[channel][subscriber.id()] && this.$[channel][subscriber.id()]._handle) {
-    _$jscoverage['hub.js'][186]++;
+    _$jscoverage['hub.js'][188]++;
     delete this.$[channel][subscriber.id()]._handle;
-    _$jscoverage['hub.js'][187]++;
+    _$jscoverage['hub.js'][189]++;
     return true;
   }
   else {
-    _$jscoverage['hub.js'][188]++;
+    _$jscoverage['hub.js'][190]++;
     return false;
   }
 });
-_$jscoverage['hub.js'][198]++;
+_$jscoverage['hub.js'][200]++;
 Hub.prototype.multiSub = (function (channels, subscribers, unsub) {
-  _$jscoverage['hub.js'][199]++;
-  var s, c, action = this.subscribe;
-  _$jscoverage['hub.js'][203]++;
+  _$jscoverage['hub.js'][201]++;
+  var s, c, action = this.subscribe, result = [];
+  _$jscoverage['hub.js'][206]++;
   if (unsub) {
-    _$jscoverage['hub.js'][203]++;
+    _$jscoverage['hub.js'][206]++;
     action = this.unsubscribe;
   }
-  _$jscoverage['hub.js'][205]++;
+  _$jscoverage['hub.js'][208]++;
   if (channels instanceof RegExp) {
-    _$jscoverage['hub.js'][206]++;
+    _$jscoverage['hub.js'][209]++;
     for (c in this.$) {
-      _$jscoverage['hub.js'][207]++;
+      _$jscoverage['hub.js'][210]++;
       if (channels.test(c)) {
-        _$jscoverage['hub.js'][208]++;
+        _$jscoverage['hub.js'][211]++;
+        result.push(c);
+        _$jscoverage['hub.js'][212]++;
         for (s in subscribers) {
-          _$jscoverage['hub.js'][209]++;
+          _$jscoverage['hub.js'][213]++;
           action.call(this, c, subscribers[s]);
 }
       }
 }
   }
   else {
-    _$jscoverage['hub.js'][213]++;
+    _$jscoverage['hub.js'][217]++;
     if (channels instanceof Array) {
-      _$jscoverage['hub.js'][214]++;
+      _$jscoverage['hub.js'][218]++;
       for (c in channels) {
-        _$jscoverage['hub.js'][215]++;
+        _$jscoverage['hub.js'][219]++;
+        result.push(channels[c]);
+        _$jscoverage['hub.js'][220]++;
         for (s in subscribers) {
-          _$jscoverage['hub.js'][216]++;
+          _$jscoverage['hub.js'][221]++;
           action.call(this, channels[c], subscribers[s]);
 }
 }
     }
   }
+  _$jscoverage['hub.js'][226]++;
+  return result;
 });
-_$jscoverage['hub.js'][229]++;
+_$jscoverage['hub.js'][236]++;
 Hub.prototype.multiUnsub = (function (channels, subscribers) {
-  _$jscoverage['hub.js'][230]++;
+  _$jscoverage['hub.js'][237]++;
   this.multiSub(channels, subscribers, true);
 });
-_$jscoverage['hub.js'][242]++;
+_$jscoverage['hub.js'][249]++;
 Hub.prototype.pub = (function (channel, body, options) {
-  _$jscoverage['hub.js'][243]++;
+  _$jscoverage['hub.js'][250]++;
   var msg = _.createMessage(channel, body, options);
-  _$jscoverage['hub.js'][244]++;
+  _$jscoverage['hub.js'][251]++;
   msg._id = this._id + "#" + this._msgCount++;
-  _$jscoverage['hub.js'][245]++;
+  _$jscoverage['hub.js'][252]++;
   return this.publish(msg, this);
 });
-_$jscoverage['hub.js'][257]++;
+_$jscoverage['hub.js'][264]++;
 Hub.prototype.publish = (function (msg, publisher) {
-  _$jscoverage['hub.js'][258]++;
+  _$jscoverage['hub.js'][265]++;
   var s, self, reChannel;
-  _$jscoverage['hub.js'][262]++;
+  _$jscoverage['hub.js'][270]++;
   if (! this.authorize(publisher.id(), "pub", msg.channel)) {
-    _$jscoverage['hub.js'][263]++;
+    _$jscoverage['hub.js'][271]++;
     return false;
   }
-  _$jscoverage['hub.js'][265]++;
+  _$jscoverage['hub.js'][273]++;
   if (msg.answerMe) {
-    _$jscoverage['hub.js'][267]++;
+    _$jscoverage['hub.js'][275]++;
     reChannel = "_re:" + msg._id;
-    _$jscoverage['hub.js'][269]++;
+    _$jscoverage['hub.js'][277]++;
     this.rules("allowSub", reChannel, publisher);
-    _$jscoverage['hub.js'][270]++;
+    _$jscoverage['hub.js'][278]++;
     this.subscribe(reChannel, publisher);
-    _$jscoverage['hub.js'][272]++;
+    _$jscoverage['hub.js'][280]++;
     for (s in this.$[msg.channel]) {
-      _$jscoverage['hub.js'][273]++;
+      _$jscoverage['hub.js'][281]++;
       if (this.authorize(s, "sub", msg.channel)) {
-        _$jscoverage['hub.js'][274]++;
+        _$jscoverage['hub.js'][282]++;
         this.$[reChannel][s] = {};
-        _$jscoverage['hub.js'][275]++;
+        _$jscoverage['hub.js'][283]++;
         this.$[reChannel][s]._allowpub = true;
       }
 }
-    _$jscoverage['hub.js'][278]++;
+    _$jscoverage['hub.js'][286]++;
     this.$[reChannel]._re = true;
-    _$jscoverage['hub.js'][280]++;
+    _$jscoverage['hub.js'][288]++;
     self = this;
-    _$jscoverage['hub.js'][281]++;
+    _$jscoverage['hub.js'][289]++;
     setTimeout((function () {
-  _$jscoverage['hub.js'][281]++;
+  _$jscoverage['hub.js'][289]++;
   self.deleteChannel(reChannel);
 }), msg.ttl? msg.ttl: 1000);
   }
-  _$jscoverage['hub.js'][284]++;
+  _$jscoverage['hub.js'][292]++;
   for (s in this.$[msg.channel]) {
-    _$jscoverage['hub.js'][285]++;
+    _$jscoverage['hub.js'][293]++;
     if (this.$[msg.channel][s]._handle) {
-      _$jscoverage['hub.js'][286]++;
+      _$jscoverage['hub.js'][294]++;
       this.$[msg.channel][s]._handle.receive(msg);
     }
 }
-  _$jscoverage['hub.js'][289]++;
+  _$jscoverage['hub.js'][297]++;
   return true;
 });
-_$jscoverage['hub.js'][293]++;
+_$jscoverage['hub.js'][301]++;
 Hub.prototype.recieve = Hub.prototype.publish;
-_$jscoverage['hub.js'][297]++;
+_$jscoverage['hub.js'][305]++;
 Hub.prototype.dump = (function (channel) {
-  _$jscoverage['hub.js'][298]++;
+  _$jscoverage['hub.js'][306]++;
   return util.inspect(this.$);
 });
-_$jscoverage['hub.js'][301]++;
+_$jscoverage['hub.js'][309]++;
 exports = module.exports = Hub;
-_$jscoverage['hub.js'].source = ["'use strict'","/**"," * Module dependencies."," */","","if (typeof window === 'undefined') var util = require('util');  /////////////////debug only","","var _ = require('./utils');  // Customized underscore lib","var Actor = require('./actor');","","","var Hub = function () {","  this._id = 'hub';  /////////////////debug only","  this._msgCount = 0;","  this._in = '_in_' + this._id;","  this._out = '_out_' + this._id;  ","  this.$ = {};","  this.rules('allowSub', this._in, this);","  this.rules('allowPub', this._out, this);","};","","/**"," * Inherits Actor."," */","","Hub.prototype = new Actor;","","/**"," * Connects actor to the hub"," *"," * $param {object} [actor]"," */"," ","Hub.prototype.connect = function (a)  {","  a.hub = this;","  this.rules('allowSub', a._in, a);","  this.rules('allowPub', a._out, a);","  this.rules('allowSub', this._out, a);","  this.rules('allowSub', a._out, this);","  // actor's specific subsciptions, etc.","  a.connect();","}","","/**"," * Deletes channel."," *"," * $param {string} [channel]"," * $returns {bool} success?"," */","","Hub.prototype.deleteChannel = function (channel)  {","  if (this.$[channel])  {","    delete this.$[channel];","    return true;","  }","  return false;","}","","/**"," * Sets access rules. If there is no such channel, creates it"," *"," * $param {string} [action] See allowed options in switch statement"," * $param {string|RegExp|Array} [channels] "," * $param {string|object|Array of strings|objects} [actors] "," */"," ","Hub.prototype.rules = function (action, channels, actors)  {","  var a,","      c,","      temp = [],","      changes = {};","      ","  if (actors &amp;&amp; !(actors instanceof Array))  {","    actors = [actors];","  }","  for (a in actors)  {","    if (actors[a].id &amp;&amp; actors[a].id())  {","      actors[a] = actors[a].id();   ","    }","  }","  if (channels instanceof RegExp)  {","    for (c in this.$)  { ","      if (channels.test(c))  {","        temp.push(c);","      }","    }","    channels = temp;","  } else if (!(channels instanceof Array))  {","    channels = [channels];","    }","  for (c in channels)  {","    changes[channels[c]] = {};","    switch (action)  {","    case 'openSub':","      changes[channels[c]]._opensub = true;","      break;","    case 'openPub':","      changes[channels[c]]._openpub = true;","      break;","    case 'closeSub':","      changes[channels[c]]._opensub = false;","      break;","    case 'closePub':","      changes[channels[c]]._openpub = false;","      break;","    case 'allowSub':","      for (a in actors)  {","        changes[channels[c]][actors[a]] = {};      ","        changes[channels[c]][actors[a]]._allowsub = true;","      }","      break;","    case 'allowPub':        ","      for (a in actors)  {","        changes[channels[c]][actors[a]] = {};      ","        changes[channels[c]][actors[a]]._allowpub = true;","      }","      break;","    case 'denySub':","      for (a in actors)  {","        changes[channels[c]][actors[a]] = {};      ","        changes[channels[c]][actors[a]]._allowsub = false;","      }","      break;","    case 'denyPub':        ","      for (a in actors)  {","        changes[channels[c]][actors[a]] = {};      ","        changes[channels[c]][actors[a]]._allowpub = false;","      }","      break;","    }//case","  }//for","  _.deepExtend(this.$, changes);","}","","/**"," * Authorizes action. Access rules are set only for individual actors or the whole channel."," * To create roles or security groups use arrays or nested hubs. "," *"," * $param {string} [channel]"," * $param {string} [action] pub or sub"," * $param {string} [actorId] "," * $returns {bool} authorized?"," */","","Hub.prototype.authorize = function (actorId, action, channel)  {","  if (this.$[channel] &amp;&amp;","     (this.$[channel]['_open' + action] ||","       (this.$[channel][actorId] &amp;&amp;","        this.$[channel][actorId]['_allow' + action]","       )","     ))  {  return true; }","  this.pub (this._out, 'Unauthorized ' + action + ' on ' + channel + ' by ' + actorId);","  return false;","}","","/**"," * Subscribes to channel. If there is now such channel, creates it."," *"," * $param {string} [channel]"," * $param {string} [subscriberId]"," * $param {object} [handle]"," * $returns {bool} Is the subscriber allowed to subscribe?"," */","","Hub.prototype.subscribe = function (channel, subscriber)  {","  var changes = {};","  changes[channel] = {};","  changes[channel][subscriber.id()] = {_handle: subscriber};","  _.deepExtend(this.$, changes);","  if (this.authorize(subscriber.id(), 'sub', channel))  return true;","  else return false;","};","","/**"," * Unsubscribes."," *"," * $param {string} [channel]"," * $param {string} [subscriberId]"," * $returns {bool} success?"," */","","Hub.prototype.unsubscribe = function (channel, subscriber)  {","  if (this.$[channel] &amp;&amp; ","      this.$[channel][subscriber.id()] &amp;&amp; ","      this.$[channel][subscriber.id()]._handle)  {","    delete this.$[channel][subscriber.id()]._handle;","    return true;","  } else return false;","}","","/**"," * Subscribes to channels matching pattern or present in array."," *"," * $param {RegExp|Array} [channels]"," * $param {Array} [subscribers]   "," */"," ","Hub.prototype.multiSub = function (channels, subscribers, unsub)  {","  var s,","      c,","      action = this.subscribe;","      ","  if (unsub) action = this.unsubscribe;","","  if (channels instanceof RegExp)  {","    for (c in this.$)  {","      if (channels.test(c))  { ","        for (s in subscribers)  {","          action.call(this, c, subscribers[s]);","        }","      }","    }","  } else if (channels instanceof Array)  {","    for (c in channels)  {","      for (s in subscribers) {","        action.call(this, channels[c], subscribers[s]);","      }","    }","  }","}","","/**"," * Unsubscribes channels matching pattern or present in array."," *"," * $param {RegExp|Array} [channels]"," * $param {Array} [subscriberIds]"," */","  ","Hub.prototype.multiUnsub = function (channels, subscribers)  {","  this.multiSub(channels, subscribers, true);","}","","/**"," * Creates and publishes message"," *"," * $param {string} [channel] "," * $param {any} [body] message body"," * $param {object} [options] see createMessage"," * $returns {true|false} success|failure"," */","","Hub.prototype.pub = function (channel, body, options) {","  var msg = _.createMessage(channel, body, options);","  msg._id = this._id + '#' + this._msgCount++;","  return this.publish (msg, this);","}","","/**"," * Publishes message"," *"," * $param {object} [message] "," * $param {string} [publisherId]"," * $param {object} [handle] "," * $returns {true|false} success|failure"," */","","Hub.prototype.publish = function (msg, publisher) {","  var s,","      self,","      reChannel;","  ","  if (!this.authorize(publisher.id(), 'pub', msg.channel))","    return false;","  // if message requires answer","  if (msg.answerMe)  {","    // create temp channel for it, ","    reChannel = '_re:' + msg._id;","    // subscribe publisher on it","    this.rules('allowSub', reChannel, publisher);","    this.subscribe (reChannel, publisher);","    // and allow all subscribers of initial message to publish on it","    for (s in this.$[msg.channel])  {","      if (this.authorize(s, 'sub', msg.channel))  {","        this.$[reChannel][s] = {};","        this.$[reChannel][s]._allowpub = true;","      }","    }","    this.$[reChannel]._re = true;","    // delete this channel after msg.ttl milliseconds, or 1 second if ttl is empty","    self = this;","    setTimeout (function () { self.deleteChannel(reChannel); }, msg.ttl ? msg.ttl : 1000);","  }","  // send message to all subscribers","  for (s in this.$[msg.channel])  {","    if (this.$[msg.channel][s]._handle)  {","      this.$[msg.channel][s]._handle.receive(msg);","    }  ","  }","  return true;","}","","// alias for interhub communication","Hub.prototype.recieve = Hub.prototype.publish;","","/////////////////debug only","","Hub.prototype.dump = function (channel) {","  return util.inspect(this.$);","}","","exports = module.exports = Hub;"];
+_$jscoverage['hub.js'].source = ["'use strict'","/**"," * Module dependencies."," */","","if (typeof window === 'undefined') var util = require('util');  /////////////////debug only","","var _ = require('./utils');  // Customized underscore lib","var Actor = require('./actor');","","","var Hub = function (id) {","  this._id = id || 'hub';  /////////////////debug only","  this._msgCount = 0;","  this._in = '_in_' + this._id;","  this._out = '_out_' + this._id;  ","  this.$ = {};","  this.rules('allowSub', this._in, this);","  this.rules('allowPub', this._out, this);","};","","/**"," * Inherits Actor."," */","","Hub.prototype = new Actor;","","/**"," * Connects actor to the hub"," *"," * $param {object} [actor]"," */"," ","Hub.prototype.connect = function (a)  {","  a.hub = this;","  this.rules('allowSub', a._in, a);","  this.rules('allowPub', a._out, a);","  this.rules('allowSub', this._out, a);","  this.rules('allowSub', a._out, this);","  // actor's specific subsciptions, etc.","  a.connect();","}","","/**"," * Deletes channel."," *"," * $param {string} [channel]"," * $returns {bool} success?"," */","","Hub.prototype.deleteChannel = function (channel)  {","  if (this.$[channel])  {","    delete this.$[channel];","    return true;","  }","  return false;","}","","/**"," * Sets access rules. If there is no such channel, creates it"," *"," * $param {string} [action] See allowed options in switch statement"," * $param {string|RegExp|Array} [channels] "," * $param {string|object|Array of strings|objects} [actors] "," */"," ","Hub.prototype.rules = function (action, channels, actors)  {","  var a,","      c,","      temp = [],","      changes = {};","      ","  if (actors &amp;&amp; !(actors instanceof Array))  {","    actors = [actors];","  }","  for (a in actors)  {","    if (actors[a].id &amp;&amp; actors[a].id())  {","      actors[a] = actors[a].id();   ","    }","  }","  if (channels instanceof RegExp)  {","    for (c in this.$)  { ","      if (channels.test(c))  {","        temp.push(c);","      }","    }","    channels = temp;","  } else if (!(channels instanceof Array))  {","    channels = [channels];","    }","  for (c in channels)  {","    changes[channels[c]] = {};","    switch (action)  {","    case 'openSub':","      changes[channels[c]]._opensub = true;","      break;","    case 'openPub':","      changes[channels[c]]._openpub = true;","      break;","    case 'closeSub':","      changes[channels[c]]._opensub = false;","      break;","    case 'closePub':","      changes[channels[c]]._openpub = false;","      break;","    case 'allowSub':","      for (a in actors)  {","        changes[channels[c]][actors[a]] = {};      ","        changes[channels[c]][actors[a]]._allowsub = true;","      }","      break;","    case 'allowPub':        ","      for (a in actors)  {","        changes[channels[c]][actors[a]] = {};      ","        changes[channels[c]][actors[a]]._allowpub = true;","      }","      break;","    case 'denySub':","      for (a in actors)  {","        changes[channels[c]][actors[a]] = {};      ","        changes[channels[c]][actors[a]]._allowsub = false;","      }","      break;","    case 'denyPub':        ","      for (a in actors)  {","        changes[channels[c]][actors[a]] = {};      ","        changes[channels[c]][actors[a]]._allowpub = false;","      }","      break;","    }//case","  }//for","  _.deepExtend(this.$, changes, 4);","}","","/**"," * Authorizes action. Access rules are set only for individual actors or the whole channel."," * To create roles or security groups use arrays or nested hubs. "," *"," * $param {string} [channel]"," * $param {string} [action] pub or sub"," * $param {string} [actorId] "," * $returns {bool} authorized?"," */","","Hub.prototype.authorize = function (actorId, action, channel)  {","  if (this.$[channel] &amp;&amp;","     (this.$[channel]['_open' + action] ||","       (this.$[channel][actorId] &amp;&amp;","        this.$[channel][actorId]['_allow' + action]","       )","     ))  {  return true; }","  this.pub (this._out, 'Unauthorized ' + action + ' on ' + channel + ' by ' + actorId);","  return false;","}","","/**"," * Subscribes to channel. If there is now such channel, creates it."," *"," * $param {string} [channel]"," * $param {string} [subscriberId]"," * $param {object} [handle]"," * $returns {bool} Is the subscriber allowed to subscribe?"," */","","Hub.prototype.subscribe = function (channel, subscriber)  {","","  var changes = {};","  changes[channel] = {};","  changes[channel][subscriber.id()] = {_handle: subscriber};","  _.deepExtend(this.$, changes, 2);","  ","  if (this.authorize(subscriber.id(), 'sub', channel))  return true;","  else return false;","};","","/**"," * Unsubscribes."," *"," * $param {string} [channel]"," * $param {string} [subscriberId]"," * $returns {bool} success?"," */","","Hub.prototype.unsubscribe = function (channel, subscriber)  {","  if (this.$[channel] &amp;&amp; ","      this.$[channel][subscriber.id()] &amp;&amp; ","      this.$[channel][subscriber.id()]._handle)  {","    delete this.$[channel][subscriber.id()]._handle;","    return true;","  } else return false;","}","","/**"," * Subscribes to channels matching pattern or present in array."," *"," * $param {RegExp|Array} [channels]"," * $param {Array} [subscribers]   "," */"," ","Hub.prototype.multiSub = function (channels, subscribers, unsub)  {","  var s,","      c,","      action = this.subscribe,","      result = [];","      ","  if (unsub) action = this.unsubscribe;","","  if (channels instanceof RegExp)  {","    for (c in this.$)  {","      if (channels.test(c))  { ","        result.push(c);","        for (s in subscribers)  {","          action.call(this, c, subscribers[s]);","        }","      }","    }","  } else if (channels instanceof Array)  {","    for (c in channels)  {","      result.push(channels[c]);","      for (s in subscribers) {","        action.call(this, channels[c], subscribers[s]);","      }","    }","  }","//  console.log(result);","  return result;","}","","/**"," * Unsubscribes channels matching pattern or present in array."," *"," * $param {RegExp|Array} [channels]"," * $param {Array} [subscriberIds]"," */","  ","Hub.prototype.multiUnsub = function (channels, subscribers)  {","  this.multiSub(channels, subscribers, true);","}","","/**"," * Creates and publishes message"," *"," * $param {string} [channel] "," * $param {any} [body] message body"," * $param {object} [options] see createMessage"," * $returns {true|false} success|failure"," */","","Hub.prototype.pub = function (channel, body, options) {","  var msg = _.createMessage(channel, body, options);","  msg._id = this._id + '#' + this._msgCount++;","  return this.publish (msg, this);","}","","/**"," * Publishes message"," *"," * $param {object} [message] "," * $param {string} [publisherId]"," * $param {object} [handle] "," * $returns {true|false} success|failure"," */","","Hub.prototype.publish = function (msg, publisher) {","  var s,","      self,","      reChannel;","  ","  //console.log(util.inspect(msg))","  if (!this.authorize(publisher.id(), 'pub', msg.channel))","    return false;","  // if message requires answer","  if (msg.answerMe)  {","    // create temp channel for it, ","    reChannel = '_re:' + msg._id;","    // subscribe publisher on it","    this.rules('allowSub', reChannel, publisher);","    this.subscribe (reChannel, publisher);","    // and allow all subscribers of initial message to publish on it","    for (s in this.$[msg.channel])  {","      if (this.authorize(s, 'sub', msg.channel))  {","        this.$[reChannel][s] = {};","        this.$[reChannel][s]._allowpub = true;","      }","    }","    this.$[reChannel]._re = true;","    // delete this channel after msg.ttl milliseconds, or 1 second if ttl is empty","    self = this;","    setTimeout (function () { self.deleteChannel(reChannel); }, msg.ttl ? msg.ttl : 1000);","  }","  // send message to all subscribers","  for (s in this.$[msg.channel])  {","    if (this.$[msg.channel][s]._handle)  {","      this.$[msg.channel][s]._handle.receive(msg);","    }  ","  }","  return true;","}","","// alias for interhub communication","Hub.prototype.recieve = Hub.prototype.publish;","","/////////////////debug only","","Hub.prototype.dump = function (channel) {","  return util.inspect(this.$);","}","","exports = module.exports = Hub;"];

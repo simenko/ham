@@ -19,11 +19,11 @@ _$jscoverage['agent.js'][1]++;
 _$jscoverage['agent.js'][6]++;
 var Actor = require("./actor");
 _$jscoverage['agent.js'][7]++;
-var id = require("./utils").id;
+var _ = require("./utils");
 _$jscoverage['agent.js'][9]++;
-var Agent = (function () {
+var Agent = (function (id) {
   _$jscoverage['agent.js'][10]++;
-  this._id = id();
+  this._id = id || _.id();
   _$jscoverage['agent.js'][11]++;
   this._msgCount = 0;
   _$jscoverage['agent.js'][12]++;
@@ -37,4 +37,4 @@ _$jscoverage['agent.js'][21]++;
 Agent.prototype = new Actor();
 _$jscoverage['agent.js'][24]++;
 exports = module.exports = Agent;
-_$jscoverage['agent.js'].source = ["'use strict'","/**"," * Module dependencies."," */","","var Actor = require('./actor');","var id = require('./utils').id;","","var Agent = function () {","  this._id = id();  ","  this._msgCount = 0;","  this._in = '_in_' + this._id;","  this._out = '_out_' + this._id;","  this._listeners = {}; ","}","","/**"," * Inherits Actor."," */","","Agent.prototype = new Actor;","","","exports = module.exports = Agent;"];
+_$jscoverage['agent.js'].source = ["'use strict'","/**"," * Module dependencies."," */","","var Actor = require('./actor');","var _ = require('./utils');","","var Agent = function (id) {","  this._id = id || _.id();  ","  this._msgCount = 0;","  this._in = '_in_' + this._id;","  this._out = '_out_' + this._id;","  this._listeners = {}; ","}","","/**"," * Inherits Actor."," */","","Agent.prototype = new Actor;","","","exports = module.exports = Agent;"];

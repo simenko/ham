@@ -19,11 +19,11 @@ _$jscoverage['interface.js'][1]++;
 _$jscoverage['interface.js'][6]++;
 var Actor = require("./actor");
 _$jscoverage['interface.js'][7]++;
-var id = require("./utils").id;
+var _ = require("./utils");
 _$jscoverage['interface.js'][9]++;
-var Interface = (function () {
+var Interface = (function (id) {
   _$jscoverage['interface.js'][10]++;
-  this._id = id();
+  this._id = id || _.id();
   _$jscoverage['interface.js'][11]++;
   this._msgCount = 0;
   _$jscoverage['interface.js'][12]++;
@@ -37,4 +37,4 @@ _$jscoverage['interface.js'][21]++;
 Interface.prototype = new Actor();
 _$jscoverage['interface.js'][23]++;
 exports = module.exports = Interface;
-_$jscoverage['interface.js'].source = ["'use strict'","/**"," * Module dependencies."," */","","var Actor = require('./actor');","var id = require('./utils').id;","","var Interface = function ()  {","  this._id = id();  ","  this._msgCount = 0;","  this._in = '_in_' + this._id;","  this._out = '_out_' + this._id;","  this._listeners = {}; ","}","","/**"," * Inherits Actor."," */","","Interface.prototype = new Actor;","","exports = module.exports = Interface;"];
+_$jscoverage['interface.js'].source = ["'use strict'","/**"," * Module dependencies."," */","","var Actor = require('./actor');","var _ = require('./utils');","","var Interface = function (id)  {","  this._id = id || _.id();  ","  this._msgCount = 0;","  this._in = '_in_' + this._id;","  this._out = '_out_' + this._id;","  this._listeners = {}; ","}","","/**"," * Inherits Actor."," */","","Interface.prototype = new Actor;","","exports = module.exports = Interface;"];
