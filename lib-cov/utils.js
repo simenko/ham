@@ -2,33 +2,77 @@
 if (typeof _$jscoverage === 'undefined') _$jscoverage = {};
 if (! _$jscoverage['utils.js']) {
   _$jscoverage['utils.js'] = [];
-  _$jscoverage['utils.js'][5] = 0;
-  _$jscoverage['utils.js'][17] = 0;
-  _$jscoverage['utils.js'][18] = 0;
-  _$jscoverage['utils.js'][19] = 0;
-  _$jscoverage['utils.js'][20] = 0;
-  _$jscoverage['utils.js'][21] = 0;
+  _$jscoverage['utils.js'][1] = 0;
+  _$jscoverage['utils.js'][6] = 0;
+  _$jscoverage['utils.js'][7] = 0;
+  _$jscoverage['utils.js'][8] = 0;
+  _$jscoverage['utils.js'][9] = 0;
+  _$jscoverage['utils.js'][22] = 0;
   _$jscoverage['utils.js'][23] = 0;
   _$jscoverage['utils.js'][24] = 0;
   _$jscoverage['utils.js'][25] = 0;
+  _$jscoverage['utils.js'][26] = 0;
+  _$jscoverage['utils.js'][28] = 0;
+  _$jscoverage['utils.js'][29] = 0;
+  _$jscoverage['utils.js'][30] = 0;
+  _$jscoverage['utils.js'][33] = 0;
+  _$jscoverage['utils.js'][35] = 0;
+  _$jscoverage['utils.js'][36] = 0;
+  _$jscoverage['utils.js'][37] = 0;
+  _$jscoverage['utils.js'][38] = 0;
+  _$jscoverage['utils.js'][40] = 0;
+  _$jscoverage['utils.js'][43] = 0;
 }
-_$jscoverage['utils.js'][5]++;
+_$jscoverage['utils.js'][1]++;
+"use strict";
+_$jscoverage['utils.js'][6]++;
+if (typeof uuid === "undefined") {
+  _$jscoverage['utils.js'][7]++;
+  var _uuid = require("node-uuid");
+}
+else {
+  _$jscoverage['utils.js'][8]++;
+  _uuid = uuid;
+}
+_$jscoverage['utils.js'][9]++;
 var _ = require("../underscore");
-_$jscoverage['utils.js'][17]++;
-this.createMessage = (function (channel, body, options) {
-  _$jscoverage['utils.js'][18]++;
-  msg = {};
-  _$jscoverage['utils.js'][19]++;
-  msg.answerMe = false;
-  _$jscoverage['utils.js'][20]++;
-  msg.ttl = 1000;
-  _$jscoverage['utils.js'][21]++;
-  msg = _.extend(msg, options);
+_$jscoverage['utils.js'][22]++;
+_.createMessage = (function (channel, body, options) {
   _$jscoverage['utils.js'][23]++;
-  msg.channel = channel;
+  var msg = {};
   _$jscoverage['utils.js'][24]++;
-  msg.body = body;
+  msg.answerMe = false;
   _$jscoverage['utils.js'][25]++;
+  msg.ttl = 1000;
+  _$jscoverage['utils.js'][26]++;
+  msg = _.extend(msg, options);
+  _$jscoverage['utils.js'][28]++;
+  msg.channel = channel;
+  _$jscoverage['utils.js'][29]++;
+  msg.body = body;
+  _$jscoverage['utils.js'][30]++;
   return msg;
 });
-_$jscoverage['utils.js'].source = ["/**"," * Module dependencies."," */","","var _ = require('../underscore');","","/**"," * Constructs messages"," * "," * @param {string} [channel] the channel"," * @param {any} [body] message body"," * @param {object} [options] options"," * @returns {object} message "," */","","","this.createMessage = function (channel, body, options) {","  msg = {};","  msg.answerMe = false; ","  msg.ttl = 1000;","  msg = _.extend(msg, options);","  // Do not set this manually","  msg.channel = channel;","  msg.body = body;","  return msg;","}"];
+_$jscoverage['utils.js'][33]++;
+_.id = (function () {
+  _$jscoverage['utils.js'][33]++;
+  return _uuid();
+});
+_$jscoverage['utils.js'][35]++;
+_.deepExtend = (function extend(dest, source) {
+  _$jscoverage['utils.js'][36]++;
+  for (var prop in source) {
+    _$jscoverage['utils.js'][37]++;
+    if (typeof dest[prop] !== "object") {
+      _$jscoverage['utils.js'][38]++;
+      dest[prop] = source[prop];
+    }
+    else {
+      _$jscoverage['utils.js'][40]++;
+      extend(dest[prop], source[prop]);
+    }
+}
+});
+_$jscoverage['utils.js'][43]++;
+exports = module.exports = _;
+_$jscoverage['utils.js'].source = ["'use strict'","/**"," * Module dependencies."," */"," ","if (typeof uuid === 'undefined')","  var _uuid = require('node-uuid');","else _uuid = uuid;","var _ = require('../underscore');","","","/**"," * Constructs messages"," * "," * @param {string} [channel] the channel"," * @param {any} [body] message body"," * @param {object} [options] options"," * @returns {object} message "," */","","","_.createMessage = function (channel, body, options) {","  var msg = {};","  msg.answerMe = false; ","  msg.ttl = 1000;","  msg = _.extend(msg, options);","  // Do not set this manually","  msg.channel = channel;","  msg.body = body;","  return msg;","}","","_.id = function() {return _uuid();};","","_.deepExtend = function extend(dest, source) {","  for (var prop in source) ","    if (typeof dest[prop] !== 'object') ","      dest[prop] = source[prop];","    else ","      extend(dest[prop], source[prop]);","};","","exports = module.exports = _;",""];
